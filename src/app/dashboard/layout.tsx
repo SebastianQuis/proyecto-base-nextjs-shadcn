@@ -109,6 +109,7 @@ export default function DashboardLayout({
               <div className="flex-1 px-3 bg-white divide-y space-y-1">
                 <ul className="space-y-2 pb-2">
                   
+                  {/* ItemSidebar */}
                   {links.map((link) => (
                     <li key={link.href}>
                       <Link
@@ -133,6 +134,8 @@ export default function DashboardLayout({
           id="main-content"
           className="h-full w-full bg-gray-50 relative overflow-y-auto lg:ml-64"
         >
+
+          {/* TODo - SON LOS HIJOS DEL CUERPO */}
           <main>
             <div className="pt-6 px-4">
               <div className="w-full min-h-[calc(100vh-230px)]">
@@ -142,6 +145,7 @@ export default function DashboardLayout({
               </div>
             </div>
           </main>
+
 
           <footer className="bg-white md:flex md:items-center md:justify-between shadow rounded-lg p-4 md:p-6 xl:p-8 my-6 mx-4">
             <ul className="flex items-center flex-wrap mb-6 md:mb-0">
