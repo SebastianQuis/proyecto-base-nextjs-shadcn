@@ -12,22 +12,20 @@ const config: Config = {
   ],
   theme: {
   	extend: {
-		fontFamily: {
-			sans: ["Inter", "var(--font-sans)", ...defaultTheme.fontFamily.sans],
-		},
-		fontSize: {
-			base: '16px',  // Tamaño base para texto normal
-			
-			lg: '18px',    // Texto grande para subtítulos
-			xl: '20px',    // Encabezados pequeños
-			'2xl': '24px', // Encabezados medianos
-			'3xl': '30px', // Encabezados grandes
-			'4xl': '36px', // Títulos importantes
-			'5xl': '48px', // Títulos muy grandes
-			
-			sm: '14px',    // Texto más pequeño
-			xs: '12px',    // Texto muy pequeño o en etiquetas
-		  },
+  		fontFamily: {
+  			sans: ["Inter", "var(--font-sans)", ...defaultTheme.fontFamily.sans]
+  		},
+  		fontSize: {
+  			base: '16px',
+  			lg: '18px',
+  			xl: '20px',
+  			'2xl': '24px',
+  			'3xl': '30px',
+  			'4xl': '36px',
+  			'5xl': '48px',
+  			sm: '14px',
+  			xs: '12px'
+  		},
   		colors: {
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',
@@ -74,6 +72,28 @@ const config: Config = {
   			lg: 'var(--radius)',
   			md: 'calc(var(--radius) - 2px)',
   			sm: 'calc(var(--radius) - 4px)'
+  		},
+  		keyframes: {
+  			'accordion-down': {
+  				from: {
+  					height: '0'
+  				},
+  				to: {
+  					height: 'var(--radix-accordion-content-height)'
+  				}
+  			},
+  			'accordion-up': {
+  				from: {
+  					height: 'var(--radix-accordion-content-height)'
+  				},
+  				to: {
+  					height: '0'
+  				}
+  			}
+  		},
+  		animation: {
+  			'accordion-down': 'accordion-down 0.2s ease-out',
+  			'accordion-up': 'accordion-up 0.2s ease-out'
   		}
   	}
   },

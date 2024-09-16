@@ -1,9 +1,17 @@
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import Link from "next/link";
 
 const links = [
   { name: "accordion", href: "accordion" },
   { name: "alert", href: "alert" },
-];
+  { name: "button", href: "button" },
+  { name: "alet dialog", href: "alert-dialog" },
+  { name: "dialog", href: "dialog" },
+  { name: "badge", href: "badge" },
+  { name: "calendar", href: "calendar" },
+  { name: "avatar", href: "avatar" },
+  { name: "card", href: "card" },
+].sort( (a,b) => a.name.localeCompare(b.name) );
 
 export default function DashboardLayout({
   children,
@@ -91,9 +99,10 @@ export default function DashboardLayout({
             </div>
             <div className="flex items-center">
               {/* User Avatar */}
-              <div className="bg-blue-500 text-white p-2 rounded-full w-12 h-12 flex items-center justify-center">
-                SQ
-              </div>
+              <Avatar>
+                <AvatarImage src="https://github.com/shadcn.png" />
+                <AvatarFallback>CN</AvatarFallback>
+              </Avatar>
             </div>
           </div>
         </div>
