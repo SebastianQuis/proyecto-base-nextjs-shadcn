@@ -18,7 +18,7 @@ export default function HomePage() {
       {
 
         "123456789".split("").map( value => (
-          <Card>
+          <Card key={value}>
             <CardHeader>
               <CardTitle>Card Title</CardTitle>
               <CardDescription>Card Description</CardDescription>
@@ -28,7 +28,7 @@ export default function HomePage() {
             </CardContent>
             <CardFooter className="justify-end gap-2">
               <Button variant={"ghost"}>Cancel</Button>
-              <Button variant={"secondary"}>Comprar</Button>
+              <Button >Comprar</Button>
             </CardFooter>
           </Card>
         ))
