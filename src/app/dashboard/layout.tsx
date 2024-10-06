@@ -1,6 +1,9 @@
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import Link from "next/link";
 
+import { Toaster as SonnerToaster } from "@/components/ui/sonner";
+import { Toaster } from "@/components/ui/toaster";
+
 const links = [
   { name: "accordion", href: "accordion" },
   { name: "alert", href: "alert" },
@@ -16,7 +19,19 @@ const links = [
   { name: "command", href: "command" },
   { name: "combobox", href: "combobox" },
   { name: "context menu", href: "context-menu" },
-].sort( (a,b) => a.name.localeCompare(b.name) );
+  { name: "menu bar", href: "menu-bar" },
+  { name: "input OTP", href: "input-otp" },
+  { name: "progress", href: "progress" },
+  { name: "sheet", href: "sheet" },
+  { name: "skeleton", href: "skeleton" },
+  { name: "slider", href: "slider" },
+  { name: "sonner", href: "sonner" },
+  { name: "toast", href: "toast" },
+  { name: "tabs", href: "tabs" },
+  { name: "breadcrumb", href: "breadcrumb" },
+  { name: "drawer", href: "drawer" },
+  { name: "scroll-area", href: "scroll-area" },
+].sort((a, b) => a.name.localeCompare(b.name));
 
 export default function DashboardLayout({
   children,
@@ -25,7 +40,7 @@ export default function DashboardLayout({
 }) {
   return (
     <>
-      <nav className="bg-white border-b border-gray-200 fixed z-30 w-full">
+      <nav className="bg-white border-b  border-gray-200 fixed z-30 w-full">
         <div className="px-3 py-3 lg:px-5 lg:pl-3">
           <div className="flex items-center justify-between">
             <div className="flex items-center justify-start">
@@ -122,7 +137,6 @@ export default function DashboardLayout({
             <div className="flex-1 flex flex-col pt-5 pb-4 overflow-y-auto">
               <div className="flex-1 px-3 bg-white divide-y space-y-1">
                 <ul className="space-y-2 pb-2">
-                  
                   {/* ItemSidebar */}
                   {links.map((link) => (
                     <li key={link.href}>
@@ -134,7 +148,6 @@ export default function DashboardLayout({
                       </Link>
                     </li>
                   ))}
-
                 </ul>
               </div>
             </div>
@@ -148,7 +161,6 @@ export default function DashboardLayout({
           id="main-content"
           className="h-full w-full bg-gray-50 relative overflow-y-auto lg:ml-64"
         >
-
           {/* TODo - SON LOS HIJOS DEL CUERPO */}
           <main>
             <div className="pt-6 px-4">
@@ -160,8 +172,7 @@ export default function DashboardLayout({
             </div>
           </main>
 
-
-          <footer className="bg-white md:flex md:items-center md:justify-between shadow rounded-lg p-4 md:p-6 xl:p-8 my-6 mx-4">
+          <footer className="bg-white md:flex md:items-center md:justify-between shadow rounded-lg p-4 md:p-6 xl:p-8 my-6 mx-4 print:hidden">
             <ul className="flex items-center flex-wrap mb-6 md:mb-0">
               <li>
                 <a
@@ -272,19 +283,20 @@ export default function DashboardLayout({
                 </svg>
               </a>
             </div>
-          
           </footer>
 
-          <p className="text-center text-sm text-gray-500 my-10">
+          <p className="text-center text-sm text-gray-500 my-10 print:hidden">
             &copy; 2019-{new Date().getFullYear()}{" "}
             <a href="#" className="hover:underline" target="_blank">
               Themesberg
             </a>
             . All rights reserved.
           </p>
-          
         </div>
       </div>
+
+      <SonnerToaster richColors />
+      <Toaster />
     </>
   );
 }

@@ -1,8 +1,5 @@
 "use client";
 
-// TODO - EJERCICIO 1
-
-// TODO - EJERCICIO 2
 import {
   ContextMenu,
   ContextMenuCheckboxItem,
@@ -32,7 +29,7 @@ export default function HomePage() {
 
       {/* TODO - EJERCICIO 1 */}
       <ContextMenu>
-        <ContextMenuTrigger className="bg-gray-500 text-center p-2 rounded-sm" >Right click</ContextMenuTrigger>
+        <ContextMenuTrigger className="bg-gray-500 text-center p-2 rounded-sm text-white font-bold" >Right click</ContextMenuTrigger>
         <ContextMenuContent>
           <ContextMenuItem>Profile</ContextMenuItem>
           <ContextMenuItem>Billing</ContextMenuItem>
@@ -49,6 +46,7 @@ export default function HomePage() {
         </ContextMenuTrigger>
         <ContextMenuContent className="w-64" onClick={
           () => {
+            // TODO - RETROCEDER A LA PESTAÑA ANTERIOR
             router.back();
           }
         }>
