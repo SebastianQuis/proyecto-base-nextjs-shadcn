@@ -31,6 +31,7 @@ const links = [
   { name: "breadcrumb", href: "breadcrumb" },
   { name: "drawer", href: "drawer" },
   { name: "scroll-area", href: "scroll-area" },
+  { name: "data table", href: "data-table" },
 ].sort((a, b) => a.name.localeCompare(b.name));
 
 export default function DashboardLayout({
@@ -295,7 +296,7 @@ export default function DashboardLayout({
         </div>
       </div>
 
-      <SonnerToaster richColors />
+      <SonnerToaster />
       <Toaster />
     </>
   );
