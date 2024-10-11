@@ -32,6 +32,7 @@ const links = [
   { name: "drawer", href: "drawer" },
   { name: "scroll-area", href: "scroll-area" },
   { name: "data table", href: "data-table" },
+  { name: "form", href: "form" },
 ].sort((a, b) => a.name.localeCompare(b.name));
 
 export default function DashboardLayout({
