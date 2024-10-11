@@ -1,21 +1,10 @@
-"use client";
-
 import React from "react";
 
 import { cn } from "@/lib/utils";
-import { useMediaQuery } from "@uidotdev/usehooks";
 
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from "@/components/ui/dialog";
 import {
   Drawer,
   DrawerClose,
@@ -28,9 +17,6 @@ import {
 } from "@/components/ui/drawer";
 
 export default function HomePage() {
-  const [open, setOpen] = React.useState(false);
-  const isDesktop = useMediaQuery("(min-width: 768px)");
-
   return (
     <div className="grid grid-cols-2 gap-2">
       <Drawer>
