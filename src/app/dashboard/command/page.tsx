@@ -7,8 +7,8 @@ import {
   Settings,
   Smile,
   User,
-} from "lucide-react"
- 
+} from "lucide-react";
+
 import {
   Command,
   CommandEmpty,
@@ -18,44 +18,46 @@ import {
   CommandList,
   CommandSeparator,
   CommandShortcut,
-  CommandDialog
-} from "@/components/ui/command"
+  CommandDialog,
+} from "@/components/ui/command";
 import { useEffect, useState } from "react";
- 
-
 
 export default function HomePage() {
-  
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
     const onKeyDown = (e: KeyboardEvent) => {
       if (e.key === "p" && (e.metaKey || e.ctrlKey)) {
-        e.preventDefault()
-        setOpen((open) => !open)
+        e.preventDefault();
+        setOpen((open) => !open);
       }
-    }
- 
-    document.addEventListener("keydown", onKeyDown)
-    return () => document.removeEventListener("keydown", onKeyDown)
-  }, [])
+    };
+
+    document.addEventListener("keydown", onKeyDown);
+    return () => document.removeEventListener("keydown", onKeyDown);
+  }, []);
 
   return (
     <div className="grid justify-center items-center">
       {/* TODO - DIALOG TO SHOW */}
-      <CommandDialog 
-        open={ open }
-        onOpenChange={setOpen}
-      >
+      <CommandDialog open={open} onOpenChange={setOpen}>
         <CommandInput placeholder="Type a command or search..." />
         <CommandList>
           <CommandEmpty>No results found.</CommandEmpty>
           <CommandGroup heading="Suggestions">
-            <CommandItem onSelect={ (value) => { console.log('Calendar'); } }>
+            <CommandItem
+              onSelect={(value) => {
+                console.log("Calendar");
+              }}
+            >
               <Calendar className="mr-2 h-4 w-4" />
               <span>Calendar</span>
             </CommandItem>
-            <CommandItem onSelect={ (value) => { console.log('Search emoji'); } }>
+            <CommandItem
+              onSelect={(value) => {
+                console.log("Search emoji");
+              }}
+            >
               <Smile className="mr-2 h-4 w-4" />
               <span>Search Emoji</span>
             </CommandItem>
@@ -66,17 +68,29 @@ export default function HomePage() {
           </CommandGroup>
           <CommandSeparator />
           <CommandGroup heading="Settings">
-            <CommandItem onSelect={ (value) => { console.log('Profile'); } }>
+            <CommandItem
+              onSelect={(value) => {
+                console.log("Profile");
+              }}
+            >
               <User className="mr-2 h-4 w-4" />
               <span>Profile</span>
               <CommandShortcut>⌘P</CommandShortcut>
             </CommandItem>
-            <CommandItem onSelect={ (value) => { console.log('Billing'); } }>
+            <CommandItem
+              onSelect={(value) => {
+                console.log("Billing");
+              }}
+            >
               <CreditCard className="mr-2 h-4 w-4" />
               <span>Billing</span>
               <CommandShortcut>⌘B</CommandShortcut>
             </CommandItem>
-            <CommandItem onSelect={ (value) => { console.log('Settings'); } }>
+            <CommandItem
+              onSelect={(value) => {
+                console.log("Settings");
+              }}
+            >
               <Settings className="mr-2 h-4 w-4" />
               <span>Settings</span>
               <CommandShortcut>⌘S</CommandShortcut>

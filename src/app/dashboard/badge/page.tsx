@@ -2,7 +2,6 @@ import { Badge } from "@/components/ui/badge";
 
 export default function HomePage() {
   return (
-    // grid grid-cols-4
     <div className="flex gap-3">
       <Badge>default</Badge>
       <Badge variant={"destructive"}>destructive</Badge>

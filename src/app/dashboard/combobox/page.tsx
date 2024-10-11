@@ -1,10 +1,19 @@
-"use client"
+"use client";
 
-import { useState } from "react" 
-import { ArrowUpCircle, Check, CheckCircle2, ChevronsUpDown, Circle, HelpCircle, LucideIcon, XCircle } from "lucide-react"
+import { useState } from "react";
+import {
+  ArrowUpCircle,
+  Check,
+  CheckCircle2,
+  ChevronsUpDown,
+  Circle,
+  HelpCircle,
+  LucideIcon,
+  XCircle,
+} from "lucide-react";
 
-import { cn } from "@/lib/utils"
-import { Button } from "@/components/ui/button"
+import { cn } from "@/lib/utils";
+import { Button } from "@/components/ui/button";
 import {
   Command,
   CommandEmpty,
@@ -12,15 +21,14 @@ import {
   CommandInput,
   CommandItem,
   CommandList,
-} from "@/components/ui/command"
+} from "@/components/ui/command";
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
-} from "@/components/ui/popover"
+} from "@/components/ui/popover";
 
-
-  // TODO - EJERCICIO 1
+// TODO - EJERCICIO 1
 const frameworks = [
   {
     value: "next.js",
@@ -42,17 +50,15 @@ const frameworks = [
     value: "astro",
     label: "Astro",
   },
-]
+];
 
-
-
-  // TODO - EJERCICIO 2
+// TODO - EJERCICIO 2
 type Status = {
-  value: string
-  label: string
-  icon: LucideIcon
-}
- 
+  value: string;
+  label: string;
+  icon: LucideIcon;
+};
+
 const statuses: Status[] = [
   {
     value: "backlog",
@@ -79,25 +85,21 @@ const statuses: Status[] = [
     label: "Canceled",
     icon: XCircle,
   },
-]
+];
 
 export default function HomePage() {
-
   // TODO - EJERCICIO 1
-  const [open, setOpen] = useState(false)
-  const [value, setValue] = useState("")
-  
+  const [open, setOpen] = useState(false);
+  const [value, setValue] = useState("");
+
   // TODO - EJERCICIO 2
-  const [open2, setOpen2] = useState(false)
-  const [selectedStatus, setSelectedStatus] = useState<Status | null>(
-    null
-  )
+  const [open2, setOpen2] = useState(false);
+  const [selectedStatus, setSelectedStatus] = useState<Status | null>(null);
 
   return (
     <div className="grid grid-cols-2 gap-2">
-      
       {/* TODO - EJERCICIO 1 */}
-      <Popover open={open} onOpenChange={setOpen} >
+      <Popover open={open} onOpenChange={setOpen}>
         <PopoverTrigger asChild>
           <Button
             variant="outline"
@@ -122,8 +124,8 @@ export default function HomePage() {
                     key={framework.value}
                     value={framework.value}
                     onSelect={(currentValue) => {
-                      setValue(currentValue === value ? "" : currentValue)
-                      setOpen(false)
+                      setValue(currentValue === value ? "" : currentValue);
+                      setOpen(false);
                     }}
                   >
                     <Check
@@ -141,63 +143,62 @@ export default function HomePage() {
         </PopoverContent>
       </Popover>
 
-
-        {/* TODO - EJERCICIO 2 */}
-        <div className="flex items-center justify-center space-x-4">
-          <p className="text-sm text-muted-foreground">Status</p>
-          <Popover open={open2} onOpenChange={setOpen2}>
-            <PopoverTrigger asChild>
-              <Button
-                variant="outline"
-                size="sm"
-                className="w-[150px] justify-start"
-              >
-                {selectedStatus ? (
-                  <>
-                    <selectedStatus.icon className="mr-2 h-4 w-4 shrink-0" />
-                    {selectedStatus.label}
-                  </>
-                ) : (
-                  <>+ Set status</>
-                )}
-              </Button>
-            </PopoverTrigger>
-            <PopoverContent className="p-0" side="right" align="start">
-              <Command>
-                <CommandInput placeholder="Change status..." />
-                <CommandList>
-                  <CommandEmpty>No results found.</CommandEmpty>
-                  <CommandGroup>
-                    {statuses.map((status) => (
-                      <CommandItem
-                        key={status.value}
-                        value={status.value}
-                        onSelect={(value) => {
-                          setSelectedStatus(
-                            statuses.find((priority) => priority.value === value) ||
-                              null
-                          )
-                          setOpen2(false)
-                        }}
-                      >
-                        <status.icon
-                          className={cn(
-                            "mr-2 h-4 w-4",
-                            status.value === selectedStatus?.value
-                              ? "opacity-100"
-                              : "opacity-40"
-                          )}
-                        />
-                        <span>{status.label}</span>
-                      </CommandItem>
-                    ))}
-                  </CommandGroup>
-                </CommandList>
-              </Command>
-            </PopoverContent>
-          </Popover>
-        </div>
-
+      {/* TODO - EJERCICIO 2 */}
+      <div className="flex items-center justify-center space-x-4">
+        <p className="text-sm text-muted-foreground">Status</p>
+        <Popover open={open2} onOpenChange={setOpen2}>
+          <PopoverTrigger asChild>
+            <Button
+              variant="outline"
+              size="sm"
+              className="w-[150px] justify-start"
+            >
+              {selectedStatus ? (
+                <>
+                  <selectedStatus.icon className="mr-2 h-4 w-4 shrink-0" />
+                  {selectedStatus.label}
+                </>
+              ) : (
+                <>+ Set status</>
+              )}
+            </Button>
+          </PopoverTrigger>
+          <PopoverContent className="p-0" side="right" align="start">
+            <Command>
+              <CommandInput placeholder="Change status..." />
+              <CommandList>
+                <CommandEmpty>No results found.</CommandEmpty>
+                <CommandGroup>
+                  {statuses.map((status) => (
+                    <CommandItem
+                      key={status.value}
+                      value={status.value}
+                      onSelect={(value) => {
+                        setSelectedStatus(
+                          statuses.find(
+                            (priority) => priority.value === value
+                          ) || null
+                        );
+                        setOpen2(false);
+                      }}
+                    >
+                      <status.icon
+                        className={cn(
+                          "mr-2 h-4 w-4",
+                          status.value === selectedStatus?.value
+                            ? "opacity-100"
+                            : "opacity-40"
+                        )}
+                      />
+                      <span>{status.label}</span>
+                    </CommandItem>
+                  ))}
+                </CommandGroup>
+              </CommandList>
+            </Command>
+          </PopoverContent>
+        </Popover>
+      </div>
     </div>
   );
 }

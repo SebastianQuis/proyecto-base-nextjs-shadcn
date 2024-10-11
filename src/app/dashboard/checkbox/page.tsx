@@ -1,20 +1,20 @@
 "use client";
 
-import { Checkbox } from "@/components/ui/checkbox"
+import { Checkbox } from "@/components/ui/checkbox";
 import { useState } from "react";
-import { Badge } from '@/components/ui/badge';
-
+import { Badge } from "@/components/ui/badge";
 
 export default function HomePage() {
-
   const [isChecked, setIsChecked] = useState(false);
 
   return (
     <div className="items-top flex space-x-2">
-      <Checkbox 
+      <Checkbox
         id="terms1"
         checked={isChecked}
-        onCheckedChange={ (value: boolean) => { setIsChecked(value) }}
+        onCheckedChange={(value: boolean) => {
+          setIsChecked(value);
+        }}
       />
       <div className="grid gap-1.5 leading-none">
         <label
@@ -23,16 +23,19 @@ export default function HomePage() {
         >
           Accept terms and conditions
         </label>
-        <p className={`text-sm text-muted-foreground${!isChecked ? ' text-red-500' : ''}`}>
+        <p
+          className={`text-sm text-muted-foreground${
+            !isChecked ? " text-red-500" : ""
+          }`}
+        >
           You agree to our Terms of Service and Privacy Policy.
         </p>
-        
-        {
-          isChecked
-           ? (<Badge>Great!!</Badge>)
-           : (<Badge variant={'destructive'}>destructive!!</Badge>)
-        }
 
+        {isChecked ? (
+          <Badge>Great!!</Badge>
+        ) : (
+          <Badge variant={"destructive"}>destructive!!</Badge>
+        )}
       </div>
     </div>
   );

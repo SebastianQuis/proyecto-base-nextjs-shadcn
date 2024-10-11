@@ -7,33 +7,27 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from "@/components/ui/card"
+} from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-
 
 export default function HomePage() {
   return (
     <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-      {
-
-        "123456789".split("").map( value => (
-          <Card key={value}>
-            <CardHeader>
-              <CardTitle>Card Title</CardTitle>
-              <CardDescription>Card Description</CardDescription>
-            </CardHeader>
-            <CardContent>
-              <p>Card Content</p>
-            </CardContent>
-            <CardFooter className="justify-end gap-2">
-              <Button variant={"ghost"}>Cancel</Button>
-              <Button >Comprar</Button>
-            </CardFooter>
-          </Card>
-        ))
-      } 
-      
+      {"123456789".split("").map((value) => (
+        <Card key={value}>
+          <CardHeader>
+            <CardTitle>Card Title</CardTitle>
+            <CardDescription>Card Description</CardDescription>
+          </CardHeader>
+          <CardContent>
+            <p>Card Content</p>
+          </CardContent>
+          <CardFooter className="justify-end gap-2">
+            <Button variant={"ghost"}>Cancel</Button>
+            <Button>Comprar</Button>
+          </CardFooter>
+        </Card>
+      ))}
 
       <Card className="col-span-1 sm:col-span-3">
         <CardHeader>

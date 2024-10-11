@@ -14,22 +14,21 @@ import {
   ContextMenuSubContent,
   ContextMenuSubTrigger,
   ContextMenuTrigger,
-} from "@/components/ui/context-menu"
+} from "@/components/ui/context-menu";
 import { BackpackIcon } from "lucide-react";
-
 
 import { useRouter } from "next/navigation";
 
 export default function HomePage() {
-  // TODO - TRABAJAR CON NEXT/NAVIGATION
-  const router = useRouter(); 
-  
+  const router = useRouter();
+
   return (
     <div className="grid grid-cols-1 mx-auto justify-center items-center">
-
       {/* TODO - EJERCICIO 1 */}
       <ContextMenu>
-        <ContextMenuTrigger className="bg-gray-500 text-center p-2 rounded-sm text-white font-bold" >Right click</ContextMenuTrigger>
+        <ContextMenuTrigger className="bg-gray-500 text-center p-2 rounded-sm text-white font-bold">
+          Right click
+        </ContextMenuTrigger>
         <ContextMenuContent>
           <ContextMenuItem>Profile</ContextMenuItem>
           <ContextMenuItem>Billing</ContextMenuItem>
@@ -38,22 +37,22 @@ export default function HomePage() {
         </ContextMenuContent>
       </ContextMenu>
 
-
       {/* TODO - EJERCICIO 2 */}
       <ContextMenu>
         <ContextMenuTrigger className="mt-4 flex h-[150px] w-full items-center justify-center rounded-md border border-dashed text-sm">
           Right click here
         </ContextMenuTrigger>
-        <ContextMenuContent className="w-64" onClick={
-          () => {
+        <ContextMenuContent
+          className="w-64"
+          onClick={() => {
             // TODO - RETROCEDER A LA PESTAÑA ANTERIOR
             router.back();
-          }
-        }>
+          }}
+        >
           <ContextMenuItem inset>
             Atrás
             <ContextMenuShortcut>
-              <BackpackIcon/>
+              <BackpackIcon />
             </ContextMenuShortcut>
           </ContextMenuItem>
           <ContextMenuItem inset disabled>
@@ -94,7 +93,6 @@ export default function HomePage() {
           </ContextMenuRadioGroup>
         </ContextMenuContent>
       </ContextMenu>
-
     </div>
   );
 }

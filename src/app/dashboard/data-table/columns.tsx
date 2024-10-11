@@ -23,7 +23,6 @@ import { Button } from "@/components/ui/button";
 import { ArrowDownIcon, ArrowUp, Filter, MoreHorizontal } from "lucide-react";
 import { toast } from "sonner";
 
-
 // FUNCION PARA HACER BUSQUEDA ENTRE DIFERENTE COLUMNAS
 const myCustomFilterFn: FilterFn<Payment> = (
   row: Row<Payment>,
