@@ -43,7 +43,7 @@ import {
 import { SelectGroup, SelectLabel } from "@radix-ui/react-select";
 import { parseJSON, set } from "date-fns";
 import { FileDown } from "lucide-react";
-import { exportUser } from "@/app/api/export-user";
+import { exportUser } from "@/app/helpers/export-user";
 
 interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[];
