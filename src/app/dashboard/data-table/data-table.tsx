@@ -42,6 +42,8 @@ import {
 } from "@/components/ui/select";
 import { SelectGroup, SelectLabel } from "@radix-ui/react-select";
 import { parseJSON, set } from "date-fns";
+import { FileDown } from "lucide-react";
+import { exportUser } from "@/app/api/export-user";
 
 interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[];
@@ -81,6 +83,23 @@ export function DataTable<TData, TValue>({
 
   // TODO - FUNCIONALIDAD PARA AGREGAR AL CARRITO
 
+  const handleExportCSV = async () => {
+    const response = await exportUser({ pagos: data as Payment[] });
+    if (response.ok) {
+      console.log("Archivo exportado correctamente");
+      const url = window.URL.createObjectURL(response.blob!);
+      const link = document.createElement("a");
+      link.href = url;
+      link.download = "Clientes.xlsx"; // Nombre del archivo
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link); // Limpiar el DOM
+      window.URL.revokeObjectURL(url); // Liberar el objeto URL
+    } else {
+      console.error("Error al exportar el archivo");
+    }
+  };
+
   return (
     <div>
       <div className="flex items-center py-4 justify-between">
@@ -93,10 +112,10 @@ export function DataTable<TData, TValue>({
             setCurrentStatus("all");
             table.getColumn("status")?.setFilterValue(undefined);
           }}
-          className="max-w-sm"
+          className="max-w-sm mr-2"
         />
 
-        <div className="flex flex-row gap-4">
+        <div className="hidden sm:flex flex-row gap-4">
           {/* <h1>{table.getSelectedRowModel().rows.length}</h1> */}
           {
             // mostrar un boton si dentro de la table hay ya productos seleccionados
@@ -169,6 +188,10 @@ export function DataTable<TData, TValue>({
                 })}
             </DropdownMenuContent>
           </DropdownMenu>
+
+          <Button variant="outline" onClick={handleExportCSV}>
+            <FileDown size={20} />
+          </Button>
         </div>
       </div>
 
