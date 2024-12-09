@@ -3,6 +3,7 @@ import Link from "next/link";
 
 import { Toaster as SonnerToaster } from "@/components/ui/sonner";
 import { Toaster } from "@/components/ui/toaster";
+import CustomMode from "../components/CustomMode";
 
 const links = [
   { name: "accordion", href: "accordion" },
@@ -121,6 +122,8 @@ export default function DashboardLayout({
               </a>
             </div>
             <div className="flex items-center">
+              <CustomMode />
+
               {/* User Avatar */}
               <Avatar>
                 <AvatarImage src="https://github.com/shadcn.png" />
